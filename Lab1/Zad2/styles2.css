@@ -1,0 +1,74 @@
+.grid-container{
+    display: grid;
+    width: 600px;
+    height: 500px;
+    border: 20px solid rgb(219, 42, 42);
+    gap: 5px;
+    grid-template-columns: 33% 33% 33% ;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-areas:
+    "jeden dwa dwa "
+    "trzy dwa dwa"
+    "trzy cztery cztery"
+    "trzy piec szesc"
+}
+.jeden{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: rgba(247, 197, 121, 0.486);
+    border: 1px solid rgb(252, 170, 63);
+    border-radius: 5px;
+    text-align: center;
+}
+.dwa{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    background-color: rgba(247, 197, 121, 0.486);
+    border: 1px solid rgb(252, 170, 63);
+    border-radius: 5px;
+    text-align: center;
+}
+.trzy{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    background-color: rgba(247, 197, 121, 0.486);
+    border: 1px solid rgb(252, 170, 63);
+    border-radius: 5px;
+    text-align: center;
+}
+.cztery{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background-color: rgba(247, 197, 121, 0.486);
+    border: 1px solid rgb(252, 170, 63);
+    border-radius: 5px;
+    text-align: center;
+}
+.piec{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    background-color: rgba(247, 197, 121, 0.486);
+    border: 1px solid rgb(252, 170, 63);
+    border-radius: 5px;
+    text-align: center;
+}
+.szesc{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    background-color: rgba(247, 197, 121, 0.486);
+    border: 1px solid rgb(252, 170, 63);
+    border-radius: 5px;
+    text-align: center;
+}

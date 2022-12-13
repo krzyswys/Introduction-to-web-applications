@@ -1,0 +1,146 @@
+.item:nth-child(1){
+    color: magenta;
+    background-color: black;
+}
+.item:nth-child(2){
+    color: rgb(47, 177, 200);
+    background-color: rgb(199, 80, 80);
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 800px;
+    height: 100px;
+    padding: 10px;
+    text-align: center;
+
+}
+.item:nth-child(3){
+    color: rgb(0, 0, 0);
+    background-color: rgb(80, 82, 199);
+    font-size: 25px;
+    font-family:  sans-serif;
+    width: 200px;
+    height: 100px;
+    overflow:scroll;
+    padding: 50px;
+}
+
+.item:nth-child(4){
+    color: rgb(255, 0, 0);
+    background-color: rgb(218, 255, 10);
+    font-size: 15px;
+    font-family:  Arial, Helvetica, sans-serif;
+    border: 10px solid black;
+}
+
+#tabela{
+    width: 600px;
+    border-collapse: separate;
+    table-layout: fixed;
+    border-spacing: 1px 5px;
+    background-color: rgb(255, 255, 255);
+}
+
+#tabela thead{
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+
+}
+
+#tabela tbody{
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    border-spacing: 1px 1px;
+}
+
+.wiersz1{
+    padding: 5px 15px;
+    height: 10px;
+    background-color: rgb(86, 162, 230);
+   
+}
+
+.wiersz2, .wiersz4{
+    height: 10px;
+    padding: 5px 15px;
+    background-color: rgba(172, 207, 238, 0.849);
+
+}
+
+.wiersz3, .wiersz5{
+    height: 10px;
+    padding: 5px 15px;
+    background-color: rgba(206, 229, 248, 0.712);
+}
+
+#tabela2{
+    width: 500px;
+    height: 50px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border-spacing: 0 0; 
+    border: solid black;
+
+    
+}
+#tabela2  th{
+    height: 11px;
+    background-color: rgb(97, 95, 95);
+    border: solid black;
+
+}
+#tabela2  td{
+    height: 10px;
+    background-color: rgb(179, 179, 179);
+    border: solid black;
+}
+
+/* #picframe{
+    width: 50vw;
+    height: 90vh ;
+    border: 1px solid black;
+    padding: 5%;
+} */
+
+/* #pic1{
+    width: 25%;
+    height: 25%;
+    float: left;
+}
+#pic2{
+    width: 25%;
+    height: 25%;
+    float: right;
+}
+.po{
+    text-align: center;
+} */
+
+
+/* #pic1{
+    width: 25%;
+    height: 25%;
+    position:absolute;
+
+}
+#pic2{
+    width: 25%;
+    height: 25%;
+    position: relative;
+}
+#pic3{
+    width: 25%;
+    height: 25%;
+    position:absolute;
+} */
+
+#jeden{
+    background-color: rgba(135, 228, 231, 0.377);
+    width: 25vw;
+}
+#dwa{
+    background-color: rgba(255, 0, 0, 0.479);
+    width: 25vw;
+
+}

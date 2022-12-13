@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gallery-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 60vw;
+
+}
+.someimage{
+    width: 15vw;
+    height: 7vw;
+    background-color: rgb(211, 211, 211);
+}
+
+
+.image-container{
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 5px;
+    box-shadow: 1px 1px rgb(226, 226, 226);
+    text-align: center;
+    margin: 10px;
+
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="score-container"><p id="score"></p></div>
+    <div id="name-container"><p id="name"></p></div>
+    <div id="health-container"><p id="health"></p></div>
+    <div class="input-organizer">
+      <div class="input-contaienr">
+        <p>Podaj nick: (tylko litery oraz cyfry)</p>
+        <input type="text" id="inputer" name="inputer" pattern="[a-zA-Z0-9]+" />
+
+        <button id="start">Start</button>
+      </div>
+    </div>
+    <div class="endCard-container">
+      <div class="endCardInfo">
+        <h1>Koniec gry</h1>
+        <p id="nickname">nicknameholder</p>
+        <p id="scoreE">scoreholder</p>
+        <!-- todo -->
+        <p id="time">timeholder</p>
+        <!--  -->
+        <button id="startagain">Start again</button>
+      </div>
+      <div class="highscore"></div>
+    </div>
+    <div id="pointer"></div>
+    <div id="playground"></div>
+  </body>
+</html>

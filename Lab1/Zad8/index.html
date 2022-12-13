@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form action="mailto:twój_adres_poczty@domena" method="post" enctype="text/plain"><div>
+        <!-- Podstawowe pole tekstowe -->
+        <input type="text" name="Imię" placeholder="Podaj swoje imię"><br>
+        <input type="text" name="Nazwisko" placeholder="Podaj swoje nazwisko"><br>
+        <input type="text" name="nr konta" placeholder="Podaj numer konta">  <br>
+        <input type="text" name = "email" placeholder="Podaj adres"> <br>
+
+        <div class="text-container">
+            <input type="text" list="programmingLanguages" name = "city" placeholder="Podaj miasto">  <br>
+
+            <datalist id="programmingLanguages">
+                <option value="Objective C">Objective C</option>
+                <option value="C++">C++</option>
+                <option value="C#">C#</option>
+                <option value="Cobol">Cobol</option>
+                <option value="Go">Go</option>
+                <option value="Java">Java</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Python">Python</option>
+                <option value="PHP">PHP</option>
+                <option value="Pascal">Pascal</option>
+                <option value="Perl">Perl</option>
+                <option value="R">R</option>
+                <option value="Swift">Swift</option>
+            </datalist>
+        </div>
+
+
+        <input type="text" name = "value" placeholder="Podaj kwote przelewu">  <br>
+
+</body>
+</html>

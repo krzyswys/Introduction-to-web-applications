@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="item-container" id="pozycja1">
+        <a href="#pozycja1" class="sliding-menu-link">Pozycja 1</a>
+        <a href="#" class="sliding-menu-link-replace">Pozycja 1</a>
+        <div class="sliding-menu">
+          <p>item 1</p>
+          <p>item 2</p>
+          <p>item 3</p>
+          <p>item 4</p>
+        </div>
+      </div>
+
+      <div class="item-container" id="pozycja2">
+        <a href="#pozycja2" class="sliding-menu-link">Pozycja 2</a>
+        <a href="#" class="sliding-menu-link-replace">Pozycja 2</a>
+        <div class="sliding-menu">
+          <p>item 1</p>
+          <p>item 2</p>
+          <p>item 3</p>
+          <p>item 4</p>
+        </div>
+      </div>
+
+      <div class="item-container" id="pozycja3">
+        <a href="#pozycja3" class="sliding-menu-link">Pozycja 3</a>
+        <a href="#" class="sliding-menu-link-replace">Pozycja 3</a>
+        <div class="sliding-menu">
+          <p>item 1</p>
+          <p>item 2</p>
+          <p>item 3</p>
+          <p>item 4</p>
+        </div>
+      </div>
+
+      <div class="item-container" id="koniec">
+        <a href="#logout-option" class="sliding-menu-link">Koniec</a>
+        <a href="#" class="sliding-menu-link-replace">Koniec</a>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- let table = [];
+let flip1 = true;
+let flip2 = true;
+let flip3 = true;
+let flip4 = true;
+let flip5 = true;
+let flip6 = true;
+let flip7 = true;
+var current_page = 1;
+var records_per_page = 6; //zamiast calcrecords
+let valueSArea = 0;
+let valueSPop = 0;
+
+function prevPage() {
+  if (current_page > 1) {
+    current_page--;
+    loadPage(current_page);
+  }
+}
+
+function nextPage() {
+  if (current_page < numOfPages()) {
+    current_page++;
+    loadPage(current_page);
+  }
+}
+
+function calcRecords() {
+  let k = 0;
+  for (let i in table) {
+    if (table[i][2][0] && table[i][2][1] && table[i][2][2]) {
+      k++;
+    }
+  }
+  console.log(k);
+  return Math.floor(k / 3);
+}
+
+function loadPage(page) {
+  const myNode = document.querySelector(".container");
+  while (myNode.firstChild) {
+    myNode.removeChild(myNode.lastChild);
+  }
+  var btn_next = document.getElementById("btn_next");
+  var btn_prev = document.getElementById("btn_prev");
+
+  if (page < 1) {
+    page = 1;
+  }
+  if (page > numOfPages()) {
+    page = numOfPages();
+  }
+
+  for (let i = (page - 1) * calcRecords(); i < page * calcRecords(); i++) {
+    if (table[i][2][0] && table[i][2][1] && table[i][2][2]) {
+      myNode.append(createRegion(table[i][0], table[i][1]));
+    }
+  }
+
+  if (page == 1) {
+    btn_prev.style.visibility = "hidden";
+  } else {
+    btn_prev.style.visibility = "visible";
+  }
+
+  if (page == numOfPages(table)) {
+    btn_next.style.visibility = "hidden";
+  } else {
+    btn_next.style.visibility = "visible";
+  }
+}
+
+function numOfPages() {
+  return Math.ceil(table.length / calcRecords());
+}
+
+function setSNameFilters() {
+  for (let i in table) {
+    var con = document.querySelector(".inputerName");
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "checkbox");
+
+    if (table[i][2][0] && table[i][2][1] && table[i][2][2]) {
+      x.checked = true;
+    }
+    x.setAttribute("name", table[i][0][0]);
+    x.addEventListener("change", function () {
+      filterS(this.name);
+      loadPage(current_page);
+      console.log(table[i][2][0], table[i][2][1]);
+      setSFilters();
+    });
+    var xx = document.createElement("LABEL");
+    xx.setAttribute("for", table[i][0][0]);
+    xx.textContent = table[i][0][0];
+    xx.appendChild(x);
+    con.appendChild(xx);
+  }
+}
+function setSareaFilter() {
+  var container = document.querySelector(".inputerArea");
+  var sarea = document.createElement("INPUT");
+  sarea.addEventListener("change", function () {
+    filterS("");
+    loadPage(current_page);
+    setSFilters();
+  });
+  sarea.setAttribute("type", "range");
+  sarea.setAttribute("name", "minArea");
+  sarea.setAttribute("id", "minArea");
+  sarea.setAttribute("value", 10000);
+  sarea.setAttribute("step", "1");
+
+  sarea.setAttribute("min", (calcMin(table, 0, 1) - 1).toString());
+  sarea.setAttribute("max", (calcMax(table, 0, 1) + 1).toString());
+  var lsarea = document.createElement("LABEL");
+  lsarea.setAttribute("for", "minArea");
+  lsarea.textContent = "area";
+  lsarea.appendChild(sarea);
+  container.appendChild(lsarea);
+
+  m = document.getElementById("minArea");
+  m.value = valueSArea;
+}
+function setSPopFilter() {
+  var container = document.querySelector(".inputerPopulation");
+  var xsarea = document.createElement("INPUT");
+  xsarea.addEventListener("change", function () {
+    filterS("");
+    loadPage(current_page);
+    setSFilters();
+  });
+  xsarea.setAttribute("type", "range");
+  xsarea.setAttribute("name", "minPop");
+  xsarea.setAttribute("id", "minPop");
+  xsarea.setAttribute("value", 10000);
+  xsarea.setAttribute("step", "1");
+
+  xsarea.setAttribute("min", (calcMin(table, 0, 2) - 1).toString());
+  xsarea.setAttribute("max", (calcMax(table, 0, 2) + 1).toString());
+  var xlsarea = document.createElement("LABEL");
+  xlsarea.setAttribute("for", "minPop");
+  xlsarea.textContent = "pop";
+  xlsarea.appendChild(xsarea);
+  container.appendChild(xlsarea);
+
+  xm = document.getElementById("minPop");
+  xm.value = valueSPop;
+}
+function filterS(value) {
+  let min = document.getElementById("minArea");
+  let minArea = min.value;
+  valueSArea = minArea;
+
+  let pop = document.getElementById("minPop");
+  let minPop = pop.value;
+  valueSPop = minPop;
+
+  if (minArea == 0) {
+    minArea = calcMin(table, 0, 1);
+  }
+  for (let i in table) {
+    if (table[i][0][0].localeCompare(value) == 0) {
+      table[i][2][0] = !table[i][2][0];
+    }
+    if (table[i][0][1] < minArea) {
+      table[i][2][1] = true;
+    } else {
+      table[i][2][1] = false;
+    }
+    if (table[i][0][2] < minPop) {
+      table[i][2][2] = true;
+    } else {
+      table[i][2][2] = false;
+    }
+  }
+}
+async function setSFilters() {
+  var con1 = document.querySelector(".inputerArea");
+  var con2 = document.querySelector(".inputerName");
+  var con3 = document.querySelector(".inputerPopulation");
+
+  while (con1.firstChild) {
+    con1.removeChild(con1.lastChild);
+  }
+  while (con2.firstChild) {
+    con2.removeChild(con2.lastChild);
+  }
+  while (con3.firstChild) {
+    con3.removeChild(con3.lastChild);
+  }
+  setSNameFilters();
+  setSareaFilter();
+  setSPopFilter();
+}
+function calcMin(table, a, b) {
+  let min = table[0][a][b];
+  for (let i in table) {
+    min = Math.min(min, table[i][a][b]);
+  }
+  return min;
+}
+function calcMax(table, a, b) {
+  let max = table[0][a][b];
+  for (let i in table) {
+    max = Math.max(max, table[i][a][b]);
+  }
+  return max;
+}
+
+function sortBy(key, increasing) {
+  switch (key) {
+    case "sname":
+      table.sort();
+      if (!increasing) {
+        table.reverse();
+      }
+      setSFilters();
+      break;
+
+    case "sarea":
+      table.sort((a, b) => a[0][1] - b[0][1]);
+      if (!increasing) {
+        table.reverse();
+      }
+      setSFilters();
+      break;
+    case "spopulation":
+      table.sort((a, b) => a[0][2] - b[0][2]);
+      if (!increasing) {
+        table.reverse();
+      }
+      setSFilters();
+      break;
+    case "country":
+      for (let i in table) {
+        table[i][1].sort((a, b) => a[3].localeCompare(b[3]));
+        if (!increasing) {
+          table[i][1].reverse();
+        }
+      }
+
+      break;
+    case "city":
+      for (let i in table) {
+        table[i][1].sort();
+        if (!increasing) {
+          table[i][1].reverse();
+        }
+      }
+      break;
+    case "area":
+      for (let i in table) {
+        table[i][1].sort((a, b) => a[2] - b[2]);
+        if (!increasing) {
+          table[i][1].reverse();
+        }
+      }
+      break;
+    case "population":
+      for (let i in table) {
+        table[i][1].sort((a, b) => a[1] - b[1]);
+        if (!increasing) {
+          table[i][1].reverse();
+        }
+      }
+      break;
+  }
+  return table;
+}
+function createSet(json) {
+  const map = new Map();
+  for (let i = 0; i < json.length; i++) {
+    if (json[i].hasOwnProperty("subregion")) {
+      let countryList;
+      let country;
+      if (map.get(json[i].subregion) != undefined) {
+        countryList = map.get(json[i].subregion);
+      } else {
+        countryList = [];
+      }
+      let data = json[i];
+      if (data.capital != undefined) {
+        country = [
+          data.capital[0],
+          data.population,
+          data.area,
+          data.name.common,
+        ];
+      } else {
+        country = [null, data.population, data.area, data.name.common];
+      }
+
+      countryList.push(country);
+      map.set(json[i].subregion, countryList);
+    } else {
+    }
+  }
+  let table = [];
+  for (const [key, value] of map) {
+    table.push([
+      [key, calcArea(value), calcPopulation(value)],
+      value,
+      [true, true, true],
+    ]);
+  }
+  return table;
+}
+
+function createRegion(sub, data) {
+  const label = document.createElement("label");
+  const header = createRegionInfo(sub[0], sub[2], sub[1]);
+  const checkbox = createCheckbox();
+
+  const btnc = document.createElement("div");
+  btnc.classList.add("country-button-container");
+  const bname = document.createElement("button");
+  const bpopulation = document.createElement("button");
+  const barea = document.createElement("button");
+  const bcountry = document.createElement("button");
+
+  bname.textContent = "name";
+  bpopulation.textContent = "populacja";
+  barea.textContent = "area";
+  bcountry.textContent = "kraj";
+  bname.addEventListener("click", function () {
+    table = sortBy("city", flip4);
+    flip4 = !flip4;
+    loadPage(current_page);
+  });
+  barea.addEventListener("click", function () {
+    table = sortBy("area", flip5);
+    flip5 = !flip5;
+    loadPage(current_page);
+  });
+  bpopulation.addEventListener("click", function () {
+    table = sortBy("population", flip6);
+    flip6 = !flip6;
+    loadPage(current_page);
+  });
+  bcountry.addEventListener("click", function () {
+    table = sortBy("country", flip7);
+    flip7 = !flip7;
+    loadPage(current_page);
+  });
+  btnc.append(bname, barea, bpopulation, bcountry);
+
+  // const filters = createFilters();
+  const content = createContentsBoxx();
+  content.appendChild(btnc);
+  for (let i in data) {
+    content.appendChild(
+      createCountry(data[i][0], data[i][1], data[i][2], data[i][3])
+    );
+  }
+
+  label.append(header, checkbox, content);
+  return label;
+}
+
+function calcPopulation(data) {
+  population = 0;
+  for (let i in data) {
+    population += data[i][1];
+  }
+  return population;
+}
+function calcArea(data) {
+  area = 0;
+  for (let i in data) {
+    area += data[i][2];
+  }
+  return area;
+}
+function createContentsBoxx() {
+  const contents = document.createElement("div");
+  contents.classList.add("contents");
+  return contents;
+}
+function createCheckbox() {
+  var checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.name = "check";
+  checkbox.id = "check";
+  return checkbox;
+}
+
+function createRegionInfo(name, population, area) {
+  const ric = document.createElement("div");
+  ric.classList.add("region-info-container");
+  const SubName = document.createElement("p");
+  SubName.textContent = " " + name + ", ";
+  const SubPopulation = document.createElement("p");
+  SubPopulation.textContent = " " + population + ", ";
+  const SubArea = document.createElement("p");
+  SubArea.textContent = " " + area + ", ";
+  ric.append(SubName, SubPopulation, SubArea);
+  return ric;
+}
+
+function createCountry(name, population, area, country) {
+  const cic = document.createElement("div");
+  cic.classList.add("country-info-container");
+  const Name = document.createElement("p");
+  Name.textContent = " " + name + ", ";
+  const Population = document.createElement("p");
+  Population.textContent = " " + population + ", ";
+  const Area = document.createElement("p");
+  Area.textContent = " " + area + ", ";
+  const Country = document.createElement("p");
+  Country.textContent = " " + country + ", ";
+  cic.append(Name, Population, Area, Country);
+  return cic;
+}
+async function getResponse() {
+  var res = await fetch("https://restcountries.com/v3.1/all");
+  var json = await res.json();
+  return json;
+}
+
+async function loadSite() {
+  var json = await getResponse();
+  table = createSet(json);
+  loadPage(1, table);
+  valueSArea = calcMax(table, 0, 1) + 1;
+  valueSPop = calcMax(table, 0, 2) + 1;
+  setSFilters();
+  console.log(table);
+
+  var btn = document.getElementById("filter-region-options");
+  var x = document.querySelector(".inContainer");
+  btn.addEventListener("click", function () {
+    if (x.style.visibility == "hidden") {
+      x.style.visibility = "visible";
+    } else {
+      x.style.visibility = "hidden";
+    }
+  });
+
+  let nazwa = document.getElementById("nazwa");
+  nazwa.addEventListener("click", function () {
+    table = sortBy("sname", flip1);
+    flip1 = !flip1;
+    loadPage(current_page);
+  });
+
+  let area = document.getElementById("area");
+  area.addEventListener("click", function () {
+    table = sortBy("sarea", flip2);
+    flip2 = !flip2;
+    loadPage(current_page);
+  });
+
+  let pop = document.getElementById("populacja");
+  pop.addEventListener("click", function () {
+    table = sortBy("spopulation", flip3);
+    flip3 = !flip3;
+    loadPage(current_page);
+  });
+}
+loadSite(); -->

@@ -1,0 +1,31 @@
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 50vw;
+
+}
+
+
+.red{
+    width: 10vw;
+    height: 7vw;
+    background-color: red;
+    border: 1px solid black;
+    margin: 1vw;
+
+}
+.blue{
+    width: 30vw;
+    height: 7vw;
+    background-color: rgb(108, 156, 247);
+    border: 1px solid black;
+    margin: 1vw;;
+}
+.yellow{
+    width: 42vw;
+    height: 7vw;
+    background-color: yellow;
+    border: 1px solid black;
+    margin: 1vw;
+}

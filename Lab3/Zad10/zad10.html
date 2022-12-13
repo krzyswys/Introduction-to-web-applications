@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: bisque;
+        height: 99vh;
+        width: 99vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .move {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        background-color: aliceblue;
+        text-align: center;
+        line-height: 520px;
+      }
+      .move:hover {
+        cursor: crosshair;
+      }
+      #ball {
+        width: 80px;
+        height: 80px;
+        background-color: greenyellow;
+        border-radius: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+      }
+      .whole {
+        height: 99vh;
+        width: 99vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #alert {
+        font-size: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: red;
+        width: 20px;
+      }
+      #txt {
+        font-size: 40px;
+        color: darkgrey;
+      }
+    </style>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="alert"></div>
+    <section class="move">
+      <p id="txt">Naciśnij gdziekolwiek</p>
+      <div id="ball"></div>
+    </section>
+  </body>
+</html>

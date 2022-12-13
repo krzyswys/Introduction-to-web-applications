@@ -1,0 +1,216 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 43vw;
+    height: 75vh;
+    background-color: rgb(245, 245, 245);
+}
+
+.card1 {
+    width: 20vw;
+    min-width: 200px;
+    height: 70vh;
+    border-radius: 5px;
+    margin-right: 1%;
+    perspective: 1000px;
+}
+
+.card1:hover .flipcard-container {
+    transform: rotateY(180deg);
+}
+
+.card1:hover .reverse1 {
+    transform: rotateY(-180deg);
+}
+
+.flipcard-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+
+}
+
+.front {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 20px 10px rgb(218, 218, 218);
+    margin-right: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.card-header {
+    background-image: linear-gradient(to right, rgba(255, 109, 31, 0.4), rgba(255, 109, 31, 0.4)), url('two.jpg');
+    background-size: cover, contain;
+    background-position: center, right bottom;
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover;
+    background-position: 50%;
+
+    border-radius: 5px;
+    height: 35%;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.txt-container {
+    width: 60%;
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+    z-index: 2;
+}
+
+.txt {
+    background-image: linear-gradient(to right, rgba(252, 150, 95, 0.959), rgba(255, 109, 31, 0.753));
+    color: white;
+    font-size: 22px;
+    padding: 5%;
+    margin: 0;
+}
+
+.incline {
+    width: 100%;
+    height: 30px;
+    margin-top: -30px;
+    background-color: rgb(255, 255, 255);
+    /* -webkit-clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%); */
+    clip-path: polygon(0 80%, 100% 0, 100% 100%, 0 100%);
+}
+
+.dsc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 65%;
+    height: 60%;
+}
+
+.dsc>p {
+    width: 100%;
+    text-align: center;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background-color: rgb(138, 138, 138);
+}
+
+.reverse1 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px 10px rgb(218, 218, 218);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right, rgba(252, 158, 107, 1), rgba(255, 109, 31, 1));
+    transform: rotateY(180deg);
+}
+
+.reverse-item-container {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.reverse-txt-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.reverse1>.reverse-item-container>.reverse-txt-container>p {
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 20%;
+}
+
+.reverse1>.reverse-item-container>.reverse-txt-container>h1 {
+    font-size: 46px;
+    margin: 0;
+    margin-bottom: 10%;
+}
+
+.btn {
+    width: 50%;
+    height: 40px;
+    background-color: white;
+    border: 0px;
+    color: black;
+    text-align: center;
+    border-radius: 30px;
+    padding: 3%;
+}
+
+.btn:hover {
+    scale: 105%;
+    cursor: pointer;
+}
+
+.card2 {
+    width: 20vw;
+    height: 70vh;
+    min-width: 200px;
+    border-radius: 5px;
+    margin-left: 1%;
+    perspective: 1000px;
+}
+
+.card2>.flipcard-container>.front>.card-header {
+    background-image: linear-gradient(to right, rgba(31, 255, 132, 0.4), rgba(31, 255, 132, 0.4)), url('one.jpg');
+}
+
+.card2>.flipcard-container>.front>.card-header>.txt-container>.txt {
+    background-image: linear-gradient(to right, rgba(31, 255, 132, 0.753), rgba(31, 255, 132, 0.753));
+    border: 1px solid rgba(31, 255, 132);
+}
+
+.card2>.flipcard-container>.reverse1 {
+    background-image: linear-gradient(to right, rgb(132, 252, 186), rgba(31, 255, 132, 1));
+
+}
+
+.card2:hover .flipcard-container {
+    transform: rotateY(-180deg);
+}
+
+.card2:hover .reverse1 {
+    transform: rotateY(180deg);
+}

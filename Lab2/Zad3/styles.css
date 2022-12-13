@@ -1,0 +1,160 @@
+.multi-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container {
+    margin: 3px;
+    width: 30vw;
+    border: rgba(223, 223, 223, 0.418);
+    box-shadow: 1px 1px 10px 4px rgba(173, 173, 173, 0.808);
+    border-radius: 5px;
+}
+
+.images {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.info-container {
+    margin: 5%;
+}
+
+h2,
+h3,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-bottom: 5%;
+    font-size: 1.5vw;
+    border-bottom: 4px solid rgba(223, 223, 223, 0.679);
+
+}
+
+h2 {
+    font-size: 2vw;
+
+    margin-bottom: 1%;
+}
+
+h3 {
+    font-size: 1.7vw;
+
+    color: red;
+}
+
+.bottom-card-items-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5%;
+}
+
+button {
+    color: white;
+    background-color: rgb(235, 155, 155);
+    border: 0px;
+    padding: 4%;
+    width: 40%;
+    font-size: 1.6vw;
+}
+
+.stats {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 2%;
+    color: white;
+    background-color: rgba(173, 173, 173, 0.808);
+}
+
+.stats>p {
+    font-size: 1.5vw;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+
+@media (max-width: 650px) {
+    .card-container {
+        width: 40vw;
+    }
+
+    .images {
+        content: url(middle.jpg);
+    }
+
+    p {
+        font-size: 2.5vw;
+    }
+
+    h2 {
+        font-size: 3vw;
+    }
+
+    h3 {
+        font-size: 2.7vw;
+    }
+
+
+    button {
+        width: 40%;
+        font-size: 2.1vw;
+    }
+
+
+    .stats>p {
+        font-size: 2vw;
+    }
+
+
+}
+
+@media (max-width: 400px) {
+    .card-container {
+        width: 80vw;
+    }
+
+    .images {
+        content: url(smallest.jpg);
+
+    }
+
+    p {
+        font-size: 3.5vw;
+    }
+
+    h2 {
+        font-size: 4vw;
+    }
+
+    h3 {
+        font-size: 3.7vw;
+    }
+
+
+    button {
+        width: 40%;
+        font-size: 4.1vw;
+    }
+
+
+    .stats>p {
+        font-size: 4vw;
+    }
+
+}

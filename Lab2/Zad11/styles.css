@@ -1,0 +1,103 @@
+body {
+    background-color: rgb(238, 213, 144);
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.item-container {
+    overflow: hidden;
+}
+
+.item-container:target .sliding-menu-link {
+    display: none;
+}
+
+.item-container:target .sliding-menu {
+    height: 120px;
+}
+
+.item-container:target .sliding-menu-link-replace {
+    display: block;
+}
+
+
+.sliding-menu-link,
+.sliding-menu-link-replace {
+    display: block;
+    padding: 20px 15px;
+    background-color: rgb(235, 91, 139);
+    color: white;
+    position: relative;
+}
+
+.sliding-menu-link-replace {
+    display: none;
+    background-color: rgb(235, 103, 91);
+}
+
+.sliding-menu-link-replace:before {
+    z-index: 1;
+    content: '';
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid rgb(235, 103, 91);
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: -10px;
+    right: 15px;
+}
+
+.sliding-menu {
+    height: 0px;
+    background: rgb(46, 122, 184);
+    transition: 0.6s ease-in all;
+}
+
+.sliding-menu>p {
+    position: relative;
+    padding: 10px;
+    padding-left: 30px;
+    height: 10px;
+    line-height: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+
+}
+
+.sliding-menu>p:hover {
+    cursor: pointer;
+    background: -moz-linear-gradient(top, rgb(46, 122, 184) 0%, rgb(46, 122, 184) 50%, rgb(46, 122, 184) 0%, rgb(163, 180, 224) 0%);
+    background: -webkit-linear-gradient(top, rgb(46, 122, 184) 0%, rgb(46, 122, 184) 50%, rgb(46, 122, 184) 0%, rgb(163, 180, 224) 0%);
+    background: linear-gradient(top, rgb(46, 122, 184) 0%, rgb(46, 122, 184) 50%, rgb(46, 122, 184) 0%, rgb(163, 180, 224) 0%);
+
+}
+
+.sliding-menu>p:hover::before {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 210px;
+    border-top: 10px solid transparent;
+    border-left: 20px solid rgb(238, 213, 144);
+    border-right: 20px solid rgb(238, 213, 144);
+    border-bottom: 10px solid transparent;
+    top: 5px;
+    left: 0;
+
+}

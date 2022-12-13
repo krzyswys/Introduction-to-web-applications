@@ -1,0 +1,188 @@
+body {
+    width: 100%;
+    height: 100%;
+    background-image: url(images/board-bg.jpg);
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0px;
+    margin: 0px;
+}
+
+.input-contaienr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 40vw;
+    background-color: rgba(236, 203, 94, 0.821);
+    border-radius: 5px;
+    border: 2px solid black;
+    z-index: 3;
+}
+
+.input-contaienr>p {
+    text-align: center;
+}
+
+.input-organizer {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inputer {
+    width: 50%;
+}
+
+
+.endCard-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.589);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    padding-top: 3%;
+    z-index: 4;
+}
+
+.highscore {
+    position: relative;
+    width: 40%;
+    height: 80%;
+    background-color: rgba(208, 255, 0, 0.81);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    border-radius: 10%;
+    padding: 2%;
+    margin-left: 1%;
+}
+
+#pointer {
+    position: absolute;
+    z-index: 5;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    pointer-events: none;
+    border: 3px solid red;
+}
+
+.highscore>p {
+    text-align: center;
+}
+
+.endCardInfo {
+    position: relative;
+    width: 40%;
+    height: 80%;
+    background-color: rgba(255, 217, 0, 0.81);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    border-radius: 10%;
+    padding: 2%;
+    margin-right: 1%;
+}
+
+.endCardInfo>p {
+    font-size: 30px;
+    text-align: center;
+    margin: 0;
+}
+
+.endCardInfo>button {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.endCardInfo>h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+#playground {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    min-height: 800px;
+    overflow: hidden;
+    transition: 0.05s;
+    margin: 0px;
+
+
+}
+
+
+#score-container,
+#name-container,
+#health-container {
+    width: 100%;
+    position: absolute;
+
+    top: 0;
+    left: 0;
+}
+
+#score,
+#name,
+#health {
+    color: white;
+    font-weight: bold;
+    font-size: 72px;
+    user-select: none;
+    margin: 0px;
+}
+
+#score {
+    text-align: right;
+}
+
+#name {
+    text-align: center;
+}
+
+#health {
+    text-align: left;
+}
+
+.zombie {
+    position: absolute;
+    left: 110%;
+    width: 200px;
+    height: 310px;
+    background: url(images/walkingdead.png);
+    background-size: auto;
+    filter: none;
+    background-repeat: no-repeat;
+    border: 1px solid white;
+}
+
+
+@media screen and (max-width: 700px) {
+    h1 {
+        font-size: 20px;
+    }
+
+
+    p {
+        font-size: 15px;
+    }
+
+    #score,
+    #name,
+    #health {
+        font-size: 30px;
+    }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <style>
+      .bi {
+        margin-left: -30px;
+        position: absolute;
+        margin-top: 5px;
+        scale: 80%;
+        color: gray;
+      }
+      .bi:hover {
+        cursor: pointer;
+      }
+      .def {
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .item-sontainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        margin-left: 10px;
+      }
+      .item-sontainer > p {
+        margin-left: 20px;
+      }
+      h2 {
+        margin-bottom: 2px;
+      }
+      form {
+        margin-left: 10px;
+      }
+      label {
+        font-size: 18px;
+      }
+      input {
+        outline: none;
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid rgb(199, 199, 199);
+      }
+
+      #icof,
+      #icos,
+      #icot,
+      #icofr {
+        color: white;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+      }
+    </style>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <form>
+      <p>
+        <label for="pas">New password:</label><br />
+        <input type="password" name="pas" id="pas" />
+        <span id="eye1" class="bi material-symbols-outlined">
+          visibility_off
+        </span>
+      </p>
+      <p>
+        <label for="npas">Repeat new password:</label><br />
+        <input type="password" name="npas" id="npas" />
+        <span id="eye2" class="bi material-symbols-outlined">
+          visibility_off
+        </span>
+      </p>
+    </form>
+
+    <h2>Password requrements</h2>
+    <div class="item-sontainer">
+      <div id="f" class="def">
+        <span id="icof" class="material-symbols-outlined"> close </span>
+      </div>
+      <p>at least 8 characters (no space " ")</p>
+    </div>
+    <div class="item-sontainer">
+      <div id="s" class="def">
+        <span id="icos" class="material-symbols-outlined"> close </span>
+      </div>
+      <p>at least one special character</p>
+    </div>
+    <div class="item-sontainer">
+      <div id="t" class="def">
+        <span id="icot" class="material-symbols-outlined"> close </span>
+      </div>
+      <p>at least one capital letter</p>
+    </div>
+    <div class="item-sontainer">
+      <div id="fr" class="def">
+        <span id="icofr" class="material-symbols-outlined"> close </span>
+      </div>
+      <p>at least one digit</p>
+    </div>
+  </body>
+</html>

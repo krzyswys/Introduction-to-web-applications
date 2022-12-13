@@ -1,0 +1,120 @@
+#logo{
+    width:120px;
+    height:40px;
+    background-color:white;
+    float:left;
+    margin-left:10px;
+    top:50%;
+    position:relative;
+    transform: translateY(-50%);
+    border:2px solid black;
+}
+.grid-container{
+    display:grid;
+    height: 600px;
+    width: 1000px;
+    border: 20px solid rgb(177, 172, 172);
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 15% 10% 65% 10%;
+    grid-template-areas:
+    "head head head head"
+    "nav nav nav nav"
+    "aside main main aside2"
+    "foot foot foot foot"
+}
+#headp{
+    text-align: center;
+    margin-top: 10px;
+}
+#site-header{
+    grid-area: head;
+    background-color:gray;
+    border: 2px solid black;
+}
+.naw{
+    grid-area:nav;
+}
+.asside{
+    grid-area:aside;
+    border: 1px solid black;
+}
+.asside2{
+    grid-area:aside2;
+    border: 1px solid black;
+}
+main{
+    grid-area:main;
+    border: 1px solid black;
+}
+#foot{
+    grid-area:foot;
+    display:flex;
+    border: 1px solid black;
+    background-color:gray;
+    align-items: center;
+    justify-content:flex-start;
+    padding: 10px;
+}
+.foot-content{
+    display: flex;
+}
+
+.naw-container{
+    border:blue solid 1px;
+    display:flex;
+    flex-flow: row;
+    height:100%;
+}
+
+.nav-item{
+    display:flex;
+    flex-basis:25%;
+    border:red solid 1px;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-item-content{
+    display:flex;
+    border: black solid 1px;
+    font-size: 32px;
+}
+
+@media (max-width: 800px){
+    .grid-container{
+        display:grid;
+        height: 600px;
+        width: 1000px;
+        border: 20px solid rgb(177, 172, 172);
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: 15% 10% 45% 20% 10%;
+        grid-template-areas:
+        "head head head head"
+        "nav nav nav nav"
+        "aside main main main"
+        "aside2 aside2 aside2 aside2"
+        "foot foot foot foot"
+    }
+}
+@media (max-width: 500px){
+    .grid-container{
+        display:grid;
+        height: 600px;
+        width: 1000px;
+        border: 20px solid rgb(177, 172, 172);
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: 15% 10% 20% 25% 20% 10%;
+        grid-template-areas:
+        "head head head head"
+        "nav nav nav nav"
+        "main main main main"
+        "aside aside aside aside"
+        "aside2 aside2 aside2 aside2"
+        "foot foot foot foot"
+    }
+    #logo{
+        visibility: hidden;
+    }
+}
