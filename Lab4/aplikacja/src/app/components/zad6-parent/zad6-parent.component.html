@@ -1,0 +1,14 @@
+<div class="ans">
+  <h1>{{ currentT }}</h1>
+  <p>{{ currentD }}</p>
+</div>
+
+<div class="small-blocks-container">
+  <app-zad6-child
+    *ngFor="let entry of infoData | keyvalue"
+    [topic]="entry.key"
+    [description]="entry.value"
+    (getD)="changeD($event)"
+    (getT)="changeT($event)"
+  ></app-zad6-child>
+</div>

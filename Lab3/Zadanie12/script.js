@@ -23,7 +23,7 @@ function updateHealth() {
     hpel.textContent += "❤";
   }
 }
-
+//obiektowo?
 function generateZombie() {
   let speed = Math.round(Math.random() * 5);
   let bottomOfs = Math.round(Math.random() * 15) + 5;

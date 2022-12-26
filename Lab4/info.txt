@@ -24,7 +24,7 @@ zad7
 zad8
 - usuniecie jest w ramach sesji
 zad10
-- mozliwosc oceniania - dowolne - mozna skorzystac z gotowego(1pk)
+- mozliwosc oceniania - dowolne - mozna skorzystac z gotowego(tylko 1 pkt)
 zad12
 - najbardzije pracochlonne
 - wtepnie minumum : lokalizajca, cena(zakres), data, ocena

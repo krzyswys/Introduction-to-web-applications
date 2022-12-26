@@ -1,0 +1,70 @@
+<div class="container">
+  <h3>Wybierz markę samochodu</h3>
+  <select [(ngModel)]="selectedCompany" (click)="chosenCompany()">
+    <ng-container *ngIf="showCompanies">
+      <option disabled selected></option>
+      <option *ngFor="let company of carData | keyvalue">
+        {{ company.key }}
+      </option>
+    </ng-container>
+  </select>
+
+  <h3>Wybierz model samochodu</h3>
+  <ng-container *ngIf="showModels">
+    <div *ngFor="let model of carData[selectedCompany] | keyvalue">
+      <input
+        id="{{ model.key }}"
+        type="radio"
+        class="custom-control-input-model"
+        value="{{ model.key }}"
+        name="model"
+        ngModel
+        required
+        (click)="pickedModel(model.key)"
+      />
+      <label class="custom-control-label" for="{{ model.key }}">{{
+        model.key
+      }}</label>
+    </div>
+  </ng-container>
+
+  <h3>Wybierz kolor samochodu</h3>
+  <ng-container *ngIf="showColors">
+    <div
+      [ngStyle]="{
+        'background-color': color,
+        width: '40px',
+        height: '40px'
+      }"
+      *ngFor="let color of colorChoose"
+    >
+      <input
+        id="{{ color }}"
+        type="radio"
+        class="custom-control-input"
+        value="{{ color }}"
+        name="color"
+        ngModel
+        required
+        (click)="pickedColor(color)"
+        [ngStyle]="{
+          'background-color': color,
+          width: '30px',
+          height: '30px'
+        }"
+      />
+      <label
+        for="{{ color }}"
+        [ngStyle]="{
+          'background-color': color,
+          width: '40px',
+          height: '40px'
+        }"
+      ></label>
+    </div>
+  </ng-container>
+  <p>Twój wybór to:</p>
+  <p>
+    {{ selectedCompany + " " + selectedModel + " " + selectedColor }}
+  </p>
+</div>

@@ -1,0 +1,90 @@
+<div
+  class="form-container"
+  [ngStyle]="{
+    border: ok ? '2px solid green' : '2px solid transparent'
+  }"
+>
+  <h2>Dodaj wycieczkę</h2>
+  <form [formGroup]="TourAddForm">
+    <div class="input-container">
+      <input
+        placeholder="Nazwa wycieczki: "
+        id="name"
+        type="text"
+        formControlName="tourname"
+      />
+      <input
+        placeholder="Kraj docelowy"
+        id="destination"
+        type="text"
+        formControlName="tourdestination"
+      />
+
+      <input
+        placeholder="Miastio docelowe"
+        id="destinationCity"
+        type="text"
+        formControlName="tourdestinationCity"
+      />
+
+      <input
+        placeholder="Data rozpoczęcia: "
+        id="startDate"
+        type="text"
+        formControlName="tourstartDate"
+      />
+
+      <input
+        placeholder="Data zakończenia: "
+        id="endDate"
+        type="text"
+        formControlName="tourendDate"
+      />
+
+      <input
+        placeholder="Ilośc wycieczek na stanie: "
+        id="quantity"
+        type="text"
+        formControlName="tourquantity"
+      />
+
+      <input
+        placeholder="Ilość miejsc na wycieczkę: "
+        id="seats"
+        type="text"
+        formControlName="tourseats"
+      />
+
+      <input
+        placeholder="Cena: "
+        id="price"
+        type="text"
+        formControlName="tourprice"
+      />
+
+      <input
+        placeholder="Jednostka:  "
+        id="unit"
+        type="text"
+        formControlName="tourunit"
+      />
+
+      <input
+        placeholder="Zdjęcie"
+        id="imagelink"
+        type="text"
+        formControlName="tourimagelink"
+      />
+      <input
+        placeholder="Opis: "
+        id="shortdesc"
+        type="text"
+        formControlName="tourshortdesc"
+      />
+    </div>
+
+    <button type="submit" (click)="submitForm()">Dodaj</button>
+    <p *ngIf="wrong">Błędne dane</p>
+    <p *ngIf="ok"></p>
+  </form>
+</div>

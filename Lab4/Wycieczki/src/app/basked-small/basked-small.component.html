@@ -1,0 +1,10 @@
+<div class="basket-container">
+  <h1>KOSZYK: ({{ getLen() }})</h1>
+  <div class="position" *ngFor="let tour of btours">
+    <p>Nazwa: {{ tour.name }}</p>
+    <p>Ilość: {{ tour.amount }}</p>
+    <p>Cena: {{ tour.price }} {{ tour.unit }}</p>
+    <p>Cena razem: {{ tour.price * tour.amount }} {{ tour.unit }}</p>
+  </div>
+  <h2>Cena całkowita {{ getPrice() }}</h2>
+</div>
