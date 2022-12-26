@@ -1,0 +1,148 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
+  />
+</head>
+
+<header>
+  <div class="tour-add-container" *ngIf="addtour">
+    <app-tour-add (formSubmitEvent)="formSubmitEventHandler($event)">
+    </app-tour-add>
+  </div>
+</header>
+<div
+  class="addTour"
+  [ngStyle]="{
+    transform: getAddTour() ? 'rotate(90deg)' : 'rotate(0deg)'
+  }"
+>
+  <span class="material-symbols-outlined"> control_point_duplicate </span>
+</div>
+<div class="addTourGlow" (click)="addTour()"></div>
+<div class="tmp-container" *ngIf="tours != []">
+  <h2
+    [ngStyle]="{
+      'background-color':
+        getOrderedAmount(tours) > 10
+          ? 'rgb(122, 251, 133)'
+          : 'rgb(251, 124, 122)'
+    }"
+  >
+    Ilość zarezerwowanych wyjazdów: {{ getOrderedAmount(tours) }}
+  </h2>
+  <div class="tours-container">
+    <div class="flip-card" *ngFor="let tour of tours">
+      <main
+        class="flip-card-inner"
+        [ngClass]="{
+          expensive: tour.price == getMaxPriceTour(tours).price,
+          cheap: tour.price == getMinPriceTour(tours).price
+        }"
+      >
+        <aside class="tour">
+          <h3>{{ tour.name | uppercase }}</h3>
+
+          <article class="descriptionSection">
+            <div
+              class="profileImg"
+              [ngStyle]="{ 'background-image': 'url(' + tour.imagelink + ')' }"
+            ></div>
+            <p class="dsc">{{ tour.shortdesc }}</p>
+          </article>
+          <section class="info">
+            <div class="seats-stars-container">
+              <div class="stars">
+                <span
+                  class="material-symbols-outlined"
+                  *ngFor="let item of getStars(tour.stars); let i = index"
+                >
+                  star_half
+                </span>
+              </div>
+              <div class="seats">
+                <span class="material-symbols-outlined"> group </span>
+                <p>{{ tour.seats }}</p>
+              </div>
+            </div>
+
+            <div class="destination">
+              <span class="material-symbols-outlined"> location_on </span>
+              <p>
+                {{ tour.destination | uppercase }} / {{ tour.destinationCity }}
+              </p>
+            </div>
+
+            <div class="date">
+              <span class="material-symbols-outlined"> date_range </span>
+              <p>{{ tour.startDate }} - {{ tour.endDate }}</p>
+            </div>
+          </section>
+
+          <p
+            *ngIf="tour.quantity - tour.amount <= 2"
+            class="bottom-prompt-front"
+          >
+            Pozostało {{ tour.quantity - tour.amount }} rezerwacji
+          </p>
+          <p
+            *ngIf="tour.quantity - tour.amount > 2"
+            class="bottom-prompt-front"
+          ></p>
+          <div class="ordered">{{ tour.amount }}</div>
+        </aside>
+
+        <aside
+          class="flip-card-back"
+          [ngStyle]="{ 'background-image': 'url(' + tour.imagelink + ')' }"
+        >
+          <span class="price">{{ tour.price }} {{ tour.unit }}</span>
+          <div class="btn-container">
+            <div class="ordered-btn">{{ tour.amount }}</div>
+            <div
+              *ngIf="tour.amount < tour.quantity"
+              class="add btn"
+              (click)="add(tour)"
+            >
+              <span class="material-symbols-outlined"> add </span>
+            </div>
+            <div
+              class="remove btn"
+              [ngStyle]="{
+                'background-color':
+                  getOrderedAmount(tours) == 0 ? 'gray' : 'orange'
+              }"
+              (click)="remove(tour)"
+            >
+              <span class="material-symbols-outlined"> remove </span>
+            </div>
+          </div>
+          <div class="bottom-info"></div>
+
+          <app-star-rating
+            (ratingChanged)="ratingEventHandler(tour, $event)"
+            [tourStars]="tour.stars"
+          ></app-star-rating>
+
+          <p
+            *ngIf="tour.quantity - tour.amount <= 2"
+            class="bottom-prompt"
+            [ngStyle]="{
+              'background-color': 'rgb(237, 103, 103)'
+            }"
+          >
+            Zostało tylko {{ tour.quantity - tour.amount }} rezerwacji!
+          </p>
+          <p *ngIf="tour.quantity - tour.amount > 2" class="bottom-prompt"></p>
+          <div class="deletebtn-container" (click)="deleteTour(tour)">
+            <span class="material-symbols-outlined"> delete_forever </span>
+          </div>
+        </aside>
+      </main>
+    </div>
+  </div>
+</div>

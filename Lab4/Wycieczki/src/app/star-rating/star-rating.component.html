@@ -1,0 +1,18 @@
+<div class="star-container">
+  <span
+    class="material-symbols-rounded"
+    *ngFor="let item of getStarsFull(tourStars); let i = index"
+    (mouseenter)="starsChange(i)"
+    (click)="applyRating()"
+  >
+    star_half
+  </span>
+  <span
+    class="material-symbols-rounded"
+    *ngFor="let item of getStarsEmpty(tourStars); let i = index"
+    (mouseenter)="starsChange(i + tourStars)"
+    (click)="applyRating()"
+  >
+    star
+  </span>
+</div>

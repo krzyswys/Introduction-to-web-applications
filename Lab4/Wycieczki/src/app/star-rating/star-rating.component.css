@@ -1,0 +1,22 @@
+.star-container {
+    display: flex;
+    flex-direction: row;
+    min-height: fit-content;
+    padding: 2%;
+}
+
+.star-container>span {
+    scale: 115%;
+}
+
+.star-container>span:hover {
+    scale: 125%;
+    cursor: pointer;
+}
+
+.star-container {
+    background-color: rgba(18, 18, 18, 0.465);
+    border-radius: 5px;
+    margin: 4%;
+    width: fit-content;
+}

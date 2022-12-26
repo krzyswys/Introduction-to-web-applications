@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Podaj imię i nazwisko swojego ulubionego aktora!</h2>
+
+  <div class="input-container">
+    <div>
+      <label for="imieNazwisko">Imie i nazwisko:</label>
+      <input type="text" name="imieNazwisko" [(ngModel)]="nameInput" />
+    </div>
+    <div>
+      <label for="tytulFilmu">Tytuł filmu:</label>
+      <input type="text" name="tytulFilmu" [(ngModel)]="moveInput" />
+    </div>
+
+    <button type="submit" (click)="showInfo()">Wypisz informacje</button>
+    <p #actorInfo></p>
+  </div>
+
+  <p>{{ imieNazwisko }}</p>
+  <p>2+2 = {{ 2 + 2 }}</p>
+  <p>imie.length = {{ dlugoscImienia }}</p>
+  <p>imie.toUpperCase() = {{ imieDuzymiLiterami }}</p>
+  <p>2+3 = {{ 2 + 3 }}</p>
+  <!-- <p>windowLocation = {{ windows.location.href }}</p> -->
+</div>
